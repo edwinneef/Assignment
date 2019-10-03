@@ -1,0 +1,15 @@
+{
+  "name": "dept-assignment",
+  "version": "1.0.0",
+  "description": "My take on the Dept Assignment",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/json-server --watch database.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Edwin Neef",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.15.1"
+  }
+}
