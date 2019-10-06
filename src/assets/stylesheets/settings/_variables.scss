@@ -1,0 +1,54 @@
+//
+// Variables
+//
+
+@import url("https://fonts.googleapis.com/css?family=Teko&display=swap");
+
+// Fonts
+$font--teko: "Teko", sans-serif;
+
+// Font sizes
+$fontsize--default: 17px;
+
+$fontsize--h1-desktop: 400px;
+$fontsize--h1-mobile: 170px;
+
+$fontsize--h2-desktop: 60px;
+$fontsize--h2-mobile: 30px;
+
+$fontsize--h3-desktop: 30px;
+$fontsize--h3-mobile: 30px;
+
+// LineHeights
+$lineheight--default: 1.55;
+$lineheight--s: 1;
+
+// Colors
+$color--black: #000000;
+$color--white: #ffffff;
+$color--grey: #a3a3a3;
+$color--blue: #1a18f7;
+$color--red: #ff2929;
+
+// Widths, gutters & spacings
+$gutter--s: 20px;
+$gutter--m: 30px;
+
+$spacing--s: 40px;
+$spacing--ms: 60px;
+$spacing--m: 80px;
+
+$width--m: 1200px;
+$width--m-gutter: calc(1200px + #{$gutter--m * 2});
+
+// Breakpoints
+$bp--mobile-min: 320px;
+$bp--mobile-max: 767px;
+
+$bp--tablet-min: 768px;
+$bp--tablet-max: 1023px;
+
+$bp--desktop-min: 1024px;
+$bp--desktop-max: 1439px;
+
+$bp--large-min: 1440px;

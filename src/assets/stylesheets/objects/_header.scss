@@ -1,0 +1,11 @@
+//
+// Objects | Header
+//
+
+.header--main {
+  min-height: calc(100vh - #{$gutter--s * 2});
+  margin: $gutter--s;
+  background: $color--grey;
+  display: flex;
+  align-items: center;
+}

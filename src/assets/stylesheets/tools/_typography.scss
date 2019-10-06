@@ -1,0 +1,15 @@
+//
+// Tools | Typography
+//
+
+@mixin title {
+  font-weight: 400;
+  font-family: $font--teko;
+  text-transform: uppercase;
+  line-height: $lineheight--s;
+  margin: 0;
+}
+
+@mixin title--xl {
+  @include font-size(400px);
+}

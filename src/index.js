@@ -1,29 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
+import Navigation from "./components/navigation";
+import Header from "./components/header";
+import Cases from "./components/cases";
+import Filter from "./components/filter";
+import style from "./assets/stylesheets/style";
 
-const baseUrl = 'http://localhost:3000/menu_items'
-
-function create(data) {
-    let options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    }
-    return fetch(baseUrl, options)
-      .then((response) => response.json())
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      kind: "loaded"
+    };
   }
 
-class App extends React.Component{
-    render(){
-        
-        // create({ title: 'Test item', url: '#' })
-
-        return(
-            <div>Hello World</div>
-        )
-    }
+  render() {
+    return this.state.kind == "loaded" ? (
+      <div>
+        <Header />
+        <Navigation />
+        <Filter />
+      </div>
+    ) : (
+      <div>Loading app...</div>
+    );
+  }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'))
+ReactDOM.render(<App />, document.getElementById("app"));

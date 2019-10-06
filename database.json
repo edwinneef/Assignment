@@ -1,14 +1,69 @@
 {
-    "menu_items": [
-        {
-            "id": 1,
-            "title": "Home",
-            "url": "/"
-        },
-        {
-            "id": 2,
-            "title": "Cases",
-            "url": "/cases"
-        }
-    ]
+  "menu_items": [
+    {
+      "id": 1,
+      "title": "Home",
+      "url": "/"
+    },
+    {
+      "id": 2,
+      "title": "Werk",
+      "url": "/werk"
+    },
+    {
+      "id": 3,
+      "title": "Over",
+      "url": "/over"
+    },
+    {
+      "id": 4,
+      "title": "Diensten",
+      "url": "/diensten"
+    },
+    {
+      "id": 5,
+      "title": "Partners",
+      "url": "/partners"
+    },
+    {
+      "id": 6,
+      "title": "Stories",
+      "url": "/stories"
+    },
+    {
+      "id": 7,
+      "title": "Vacatures",
+      "url": "/vacatures"
+    }
+  ],
+  "cases": [
+    {
+      "id": 1,
+      "name": "Bol.com",
+      "title": "A summer island in the Netherlands",
+      "industry": "corporate",
+      "platforms": ["website"]
+    },
+    {
+      "id": 2,
+      "name": "Kempen",
+      "title": "Not some average banking website",
+      "industry": "corporate",
+      "platforms": ["website"]
+    },
+    {
+      "id": 3,
+      "name": "Philips",
+      "title": "Beautiful design meets innovative technology",
+      "industry": "corporate",
+      "platforms": ["website"]
+    },
+    {
+      "id": 4,
+      "name": "Gemeentemuseum",
+      "title": "A 100 years of Mondriaan & De stijl",
+      "industry": "corporate",
+      "platforms": ["website"]
+    }
+  ]
 }

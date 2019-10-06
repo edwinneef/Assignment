@@ -1,0 +1,7 @@
+//
+// Mixins
+//
+
+@mixin tablet-up {
+  @content;
+}

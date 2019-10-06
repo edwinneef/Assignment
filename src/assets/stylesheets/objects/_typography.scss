@@ -1,0 +1,13 @@
+//
+// Objects | Typography
+//
+
+h1,
+h2,
+h3 {
+  @include title;
+}
+
+h1 {
+  @include title--xl;
+}
