@@ -3,5 +3,7 @@
 //
 
 @mixin tablet-up {
-  @content;
+  @media screen and (min-width: $bp--tablet-min) {
+    @content;
+  }
 }

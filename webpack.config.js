@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const isDevelopment = process.env.NODE_ENV === "development";
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "index.js"
@@ -15,7 +15,13 @@ module.exports = {
       { test: /\.(js)$/, use: "babel-loader" },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: ["file-loader"]
+        use: ["file-loader"],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/
       },
       {
         test: /\.module\.s(a|c)ss$/,
@@ -34,7 +40,8 @@ module.exports = {
               sourceMap: isDevelopment
             }
           }
-        ]
+        ],
+        exclude: /node_modules/
       },
       {
         test: /\.s(a|c)ss$/,
@@ -63,6 +70,6 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: [".js", ".jsx", ".scss"]
+    extensions: [".tsx", ".ts", ".js", ".jsx", ".scss"]
   }
 };

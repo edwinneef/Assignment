@@ -1,11 +1,11 @@
 import "babel-polyfill";
-import React from "react";
-import ReactDOM from "react-dom";
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 import Navigation from "./components/navigation";
 import Header from "./components/header";
-import Cases from "./components/cases";
 import Filter from "./components/filter";
-import style from "./assets/stylesheets/style";
+import Cases from "./components/cases";
+require("./assets/stylesheets/style.scss");
 
 function App() {
   return (

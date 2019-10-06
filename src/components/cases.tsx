@@ -1,0 +1,145 @@
+import * as React from "react";
+import Filter from "./filter";
+import axios from "axios";
+
+interface CaseProps {
+  id: number;
+  name: string;
+  title: string;
+  industry?: string;
+  platforms?: string[];
+  type: undefined | "default" | "featured" | "side";
+}
+
+function Case(props: CaseProps): JSX.Element {
+  return (
+    <div
+      className={`case-column case-column--${
+        props.type == "default"
+          ? "half"
+          : props.type == "featured"
+          ? "featured"
+          : props.type == "side"
+          ? "side"
+          : ""
+      }`}
+      key={props.id}
+    >
+      <div className="case-column__inner">
+        {props.type != "side" && (
+          <div className="case__visual">
+            <img
+              src="http://placehold.it/585x500"
+              alt=""
+              className="case__image"
+            />
+          </div>
+        )}
+
+        <div className="case__content">
+          <span className="case__client-name">{props.name}</span>
+          <h3 className="case__title">{props.title}</h3>
+          <a href="#" className="case__link">
+            View case
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CaseRow(props: { cases: CaseProps[] }): JSX.Element {
+  return (
+    <div className="cases">
+      <div className="cases__inner container--np">
+        {props.cases.map(c => (
+          <React.Fragment key={c.id}>
+            <Case title={c.title} name={c.name} id={c.id} type="default" />
+          </React.Fragment>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function FeaturedCaseRow(props: {
+  cases: CaseProps[];
+  reversed?: boolean;
+}): JSX.Element {
+  let allCases = props.cases;
+  const featuredCase = allCases[0];
+  allCases.shift();
+  const sideCases = allCases;
+
+  return (
+    <div
+      className={`cases cases--featured${
+        props.reversed ? " cases--reversed" : ""
+      }`}
+    >
+      <div className="cases__inner container--np">
+        <Case
+          title={featuredCase.title}
+          name={featuredCase.name}
+          id={featuredCase.id}
+          type="featured"
+        />
+        <aside className="cases__sidebar">
+          {sideCases.map(c => (
+            <React.Fragment key={c.id}>
+              <Case title={c.title} name={c.name} id={c.id} type="side" />
+            </React.Fragment>
+          ))}
+        </aside>
+      </div>
+    </div>
+  );
+}
+
+interface AxiosCases {
+  cases: CaseProps[];
+}
+
+function Cases(): JSX.Element {
+  const [cases, setCases] = React.useState<AxiosCases | null>(undefined);
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios("http://localhost:3000/cases");
+      setCases({ cases: result.data });
+    };
+    fetchData();
+  }, []);
+
+  let caseList: CaseProps[] = [];
+  caseList = cases ? cases.cases : caseList;
+
+  function getCases(amount: number) {
+    return caseList.length >= amount ? caseList.splice(0, amount) : null;
+  }
+
+  function checkCases(amount: number) {
+    return caseList.length >= amount;
+  }
+
+  return cases ? (
+    <div className="cases-overview">
+      <Filter />
+      {cases && (
+        <>
+          {checkCases(2) && <CaseRow cases={getCases(2)} />}
+          {checkCases(2) && <CaseRow cases={getCases(2)} />}
+          {checkCases(3) && <FeaturedCaseRow cases={getCases(3)} />}
+          {checkCases(2) && <CaseRow cases={getCases(2)} />}
+          {checkCases(3) && <FeaturedCaseRow cases={getCases(3)} reversed />}
+          {checkCases(2) && <CaseRow cases={getCases(2)} />}
+          {checkCases(2) && <CaseRow cases={getCases(2)} />}
+        </>
+      )}
+    </div>
+  ) : (
+    <div>Loading...</div>
+  );
+}
+
+export default Cases;

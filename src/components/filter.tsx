@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
+import * as React from "react";
 
 const Filter = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = React.useState(0);
   return (
     <div className="case-filter">
       <div className="case-filter__inner container">
