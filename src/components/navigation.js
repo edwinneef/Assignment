@@ -1,29 +1,28 @@
-import React, { useEffect, useState } from "react";
-import "babel-polyfill";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { baseUrl } from "../helpers";
-import ReactDOM from "react-dom";
 
-const Navigation = () => {
-  const useFetch = url => {
-    const [data, setData] = useState(null);
-    useEffect(() => {
-      (async () => {
-        const res = await fetch(url);
-        const data = await res.json();
-        setData(data);
-      })();
-    }, [url]);
-    return data;
-  };
+function Navigation() {
+  const [data, setData] = useState({ menu_items: [] });
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios("http://localhost:3000/menu_items");
+      setData({ menu_items: result.data });
+    };
+    fetchData();
+  }, []);
 
-  console.log(useFetch("http://localhost:3000/menu_items"));
+  console.log(data);
 
   return (
-    <nav>
-      <ul></ul>
-    </nav>
+    <ul>
+      {data.menu_items.map(function(item) {
+        return (
+          <li key={item.id}>
+            <a href={item.url}>{item.title}</a>
+          </li>
+        );
+      })}
+    </ul>
   );
-};
-
+}
 export default Navigation;

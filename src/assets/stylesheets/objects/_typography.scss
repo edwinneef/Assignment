@@ -6,8 +6,21 @@ h1,
 h2,
 h3 {
   @include title;
+  text-transform: uppercase;
 }
 
 h1 {
   @include title--xl;
+}
+
+h2 {
+  @include title--l;
+}
+
+h3 {
+  @include title--m;
+}
+
+.title--m {
+  @include title--m;
 }

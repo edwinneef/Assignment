@@ -1,4 +1,5 @@
 var path = require("path");
+require("babel-polyfill");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const isDevelopment = process.env.NODE_ENV === "development";

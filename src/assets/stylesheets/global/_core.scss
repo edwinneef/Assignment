@@ -8,3 +8,11 @@ body {
   font-size: $fontsize--default;
   line-height: $lineheight--default;
 }
+
+img {
+  max-width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}

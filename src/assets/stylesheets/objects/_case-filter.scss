@@ -1,0 +1,32 @@
+//
+// Objects | Case filter
+//
+
+.case-filter {
+  @include title;
+  @include title--m;
+}
+
+.case-filter__inner {
+  height: 150px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.case-filter__description {
+  padding-right: $gutter--s;
+  color: $color--grey;
+}
+
+.case-filter__dropdown {
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0 $gutter--s 0 0;
+}
+
+.case-filter__dropdown-item {
+}
