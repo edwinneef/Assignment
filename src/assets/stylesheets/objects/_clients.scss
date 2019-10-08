@@ -3,5 +3,48 @@
 //
 
 .clients {
-    
+  background-color: $color--grey-100;
+  text-align: center;
+  border-right: 20px solid $color--white;
+}
+
+.clients__inner {
+  padding: $spacing--m 0;
+}
+
+.clients__header,
+.clients__intro {
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.clients__intro {
+  padding-top: 20px;
+  padding-bottom: 80px;
+}
+
+.clients__list {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: wrap;
+}
+
+.clients__list-item {
+  flex-basis: 100%;
+  padding: 0 $gutter--s $gutter--s $gutter--s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include tablet-up {
+    flex-basis: 33.3%;
+  }
+  @include desktop-up {
+    flex-basis: 25%;
+  }
 }

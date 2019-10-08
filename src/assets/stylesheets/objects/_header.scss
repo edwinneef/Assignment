@@ -3,9 +3,13 @@
 //
 
 .header--main {
-  min-height: calc(100vh - #{$gutter--s * 2});
-  margin: $gutter--s $gutter--s 0 $gutter--s;
+  min-height: 100vh;
+  border: $gutter--s solid $color--white;
   background: $color--grey;
   display: flex;
   align-items: center;
+}
+
+.header--main__title {
+  color: $color--black;
 }
