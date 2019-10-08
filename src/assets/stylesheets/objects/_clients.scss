@@ -3,13 +3,26 @@
 //
 
 .clients {
-  background-color: $color--grey-100;
+  background-color: $color--grey-900;
   text-align: center;
-  border-right: 20px solid $color--white;
+  position: relative;
+
+  @include tablet-up {
+    &:after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 100%;
+      background: $color--white;
+      top: 0;
+      right: 0;
+    }
+  }
 }
 
 .clients__inner {
-  padding: $spacing--m 0;
+  padding-top: $spacing--m;
+  padding-bottom: $spacing--m;
 }
 
 .clients__header,
@@ -32,6 +45,8 @@
   margin-left: auto;
   margin-right: auto;
   flex-wrap: wrap;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .clients__list-item {

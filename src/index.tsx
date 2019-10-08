@@ -7,6 +7,7 @@ import Filter from "./components/filter";
 import Cases from "./components/cases";
 import QuoteComponent from "./components/quote";
 import ClientsComponent from "./components/clients";
+import ContactComponent from "./components/contact";
 require("./assets/stylesheets/style.scss");
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         text={`“Dept helped us tell our story through a bold new identity and a robust online experience. To the tune of 60% growth in online bookings in just one month.”`}
       />
       <ClientsComponent />
+      <ContactComponent />
     </div>
   );
 }

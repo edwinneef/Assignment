@@ -6,7 +6,8 @@
 }
 
 .quote__inner {
-  padding: $spacing--m 0;
+  padding-top: $spacing--m;
+  padding-bottom: $spacing--m;
   border-top: 1px solid $color--grey-500;
 }
 

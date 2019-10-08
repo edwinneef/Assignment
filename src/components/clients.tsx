@@ -3,18 +3,20 @@ import * as React from "React";
 function ClientsComponent(): JSX.Element {
   return (
     <section className="clients">
-      <div className="clients__inner container">
-        <header className="clients__header">
-          <h2 className="clients__title">Clients</h2>
-        </header>
+      <div className="clients__inner">
+        <div className="container">
+          <header className="clients__header">
+            <h2 className="clients__title">Clients</h2>
+          </header>
 
-        <div className="clients__intro">
-          <div className="text-styled">
-            <p>
-              We value a great working relationship with our clients above all
-              else. It’s why they often come to our parties. It’s also why we’re
-              able to challenge and inspire them to reach for the stars.
-            </p>
+          <div className="clients__intro">
+            <div className="text-styled">
+              <p>
+                We value a great working relationship with our clients above all
+                else. It’s why they often come to our parties. It’s also why
+                we’re able to challenge and inspire them to reach for the stars.
+              </p>
+            </div>
           </div>
         </div>
 

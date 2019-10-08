@@ -1,0 +1,84 @@
+//
+// Objects | Contact
+//
+
+.contact {
+}
+
+.contact__inner {
+  padding-top: $spacing--m;
+  padding-bottom: $spacing--m;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @include tablet-up {
+    padding-right: 100px;
+    flex-direction: row;
+  }
+  @include desktop-up {
+    padding-right: 150px;
+  }
+  @include large {
+    padding-right: 200px;
+  }
+}
+
+.contact__header {
+  @include tablet-up {
+    width: 300px;
+  }
+}
+
+.contact__form {
+  @include tablet-up {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
+
+.form__item {
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 50px;
+
+  @include tablet-up {
+    flex-basis: 50%;
+    padding-left: 50px;
+  }
+}
+
+.form__item--message {
+  margin-bottom: 30px;
+}
+
+.form__input {
+  line-height: 40px;
+  height: 40px;
+  display: block;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid $color--grey-500;
+  margin: 0;
+  width: 100%;
+}
+
+.form__input--textarea {
+  margin-top: 20px;
+  height: 100px;
+  resize: none;
+  line-height: $lineheight--default;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.form__footer {
+  display: block;
+  width: 100%;
+  @include tablet-up {
+    padding-left: 50px;
+  }
+}

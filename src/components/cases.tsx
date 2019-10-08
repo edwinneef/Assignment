@@ -6,6 +6,7 @@ interface CaseProps {
   id: number;
   name: string;
   title: string;
+  image_url: string;
   industry?: string;
   platforms?: string[];
   type: undefined | "default" | "featured" | "side";
@@ -13,7 +14,7 @@ interface CaseProps {
 
 function Case(props: CaseProps): JSX.Element {
   return (
-    <div
+    <article
       className={`case-column case-column--${
         props.type == "default"
           ? "half"
@@ -25,26 +26,30 @@ function Case(props: CaseProps): JSX.Element {
       }`}
       key={props.id}
     >
-      <div className="case-column__inner">
-        {props.type != "side" && (
-          <div className="case__visual">
-            <img
-              src="http://placehold.it/585x500"
-              alt=""
-              className="case__image"
-            />
-          </div>
-        )}
+      <a href="#" className="case__link-outer">
+        <div className="case-column__inner">
+          {props.type != "side" && (
+            <div className="case__visual">
+              <img
+                src={`https://picsum.photos/id/${
+                  props.image_url ? props.image_url : "1"
+                }/1000/600`}
+                alt=""
+                className="case__image"
+              />
+            </div>
+          )}
 
-        <div className="case__content">
-          <span className="case__client-name title--s">{props.name}</span>
-          <h3 className="case__title">{props.title}</h3>
-          <a href="#" className="case__link">
-            View case
-          </a>
+          <div className="case__content">
+            <span className="case__client-name title--s">{props.name}</span>
+            <h3 className="case__title">{props.title}</h3>
+            <a href="#" className="case__link">
+              View case
+            </a>
+          </div>
         </div>
-      </div>
-    </div>
+      </a>
+    </article>
   );
 }
 
@@ -54,7 +59,13 @@ function CasesGrid(props: { cases: CaseProps[] }): JSX.Element {
       <div className="cases__inner container--np">
         {props.cases.map(c => (
           <React.Fragment key={c.id}>
-            <Case title={c.title} name={c.name} id={c.id} type="default" />
+            <Case
+              title={c.title}
+              name={c.name}
+              id={c.id}
+              type="default"
+              image_url={`${Math.floor(Math.random() * 500).toString()}`}
+            />
           </React.Fragment>
         ))}
       </div>
