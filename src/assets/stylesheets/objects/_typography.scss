@@ -21,6 +21,18 @@ h3 {
   @include title--m;
 }
 
+.title--xl {
+  @include title--xl;
+}
+
+.title--l {
+  @include title--l;
+}
+
 .title--m {
   @include title--m;
+}
+
+.title--s {
+  @include title--s;
 }

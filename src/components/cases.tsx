@@ -37,7 +37,7 @@ function Case(props: CaseProps): JSX.Element {
         )}
 
         <div className="case__content">
-          <span className="case__client-name">{props.name}</span>
+          <span className="case__client-name title--s">{props.name}</span>
           <h3 className="case__title">{props.title}</h3>
           <a href="#" className="case__link">
             View case
@@ -48,9 +48,9 @@ function Case(props: CaseProps): JSX.Element {
   );
 }
 
-function CaseRow(props: { cases: CaseProps[] }): JSX.Element {
+function CasesGrid(props: { cases: CaseProps[] }): JSX.Element {
   return (
-    <div className="cases">
+    <div className="cases cases--grid">
       <div className="cases__inner container--np">
         {props.cases.map(c => (
           <React.Fragment key={c.id}>
@@ -127,13 +127,11 @@ function Cases(): JSX.Element {
       <Filter />
       {cases && (
         <>
-          {checkCases(2) && <CaseRow cases={getCases(2)} />}
-          {checkCases(2) && <CaseRow cases={getCases(2)} />}
+          {checkCases(4) && <CasesGrid cases={getCases(4)} />}
           {checkCases(3) && <FeaturedCaseRow cases={getCases(3)} />}
-          {checkCases(2) && <CaseRow cases={getCases(2)} />}
+          {checkCases(2) && <CasesGrid cases={getCases(2)} />}
           {checkCases(3) && <FeaturedCaseRow cases={getCases(3)} reversed />}
-          {checkCases(2) && <CaseRow cases={getCases(2)} />}
-          {checkCases(2) && <CaseRow cases={getCases(2)} />}
+          {checkCases(4) && <CasesGrid cases={getCases(4)} />}
         </>
       )}
     </div>

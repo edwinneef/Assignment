@@ -21,7 +21,7 @@
   "scripts": {
     "db": "./node_modules/.bin/json-server --watch database.json",
     "fe": "webpack-dev-server --open",
-    "start": "concurrently \"./node_modules/.bin/json-server --watch database.json\" \"webpack-dev-server --open\""
+    "start": "concurrently \"node_modules/.bin/json-server --watch database.json\" \"webpack-dev-server --open\""
   },
   "author": "Edwin Neef",
   "license": "ISC",

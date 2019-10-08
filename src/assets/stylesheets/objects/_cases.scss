@@ -85,7 +85,7 @@
 }
 
 .case-column--side {
-  border-top: 1px solid $color--grey;
+  border-top: 1px solid $color--grey-500;
   padding: 0;
   margin-left: $gutter--m;
   margin-right: $gutter--m;
@@ -101,5 +101,41 @@
   @include tablet-up {
     width: 25%;
     min-width: 25%;
+  }
+}
+
+.case__client-name {
+  display: inline-block;
+  text-transform: uppercase;
+  color: $color--grey-400;
+  margin: 18px 0 12px 0;
+}
+
+.case__title {
+  margin-bottom: 14px;
+  text-transform: initial;
+}
+
+.case__link {
+  color: $color--blue;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 2;
+  text-decoration: none;
+  padding-left: 16px;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-left: 8px solid $color--blue;
+    border-bottom: 5px solid transparent;
   }
 }

@@ -10,12 +10,22 @@
 }
 
 @mixin title--xl {
-  @include font-size(400px);
+  @include font-size(300px);
+  @include tablet-up {
+    @include font-size(400px);
+  }
 }
 
 @mixin title--l {
+  @include font-size(36px);
 }
 
 @mixin title--m {
   font-size: 30px;
+}
+
+@mixin title--s {
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
