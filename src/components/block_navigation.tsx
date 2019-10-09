@@ -17,7 +17,7 @@ function Navigation(props: NavigationProps): JSX.Element {
   }
 
   return (
-    <nav className={`topnav ${menu.show ? "topnav--show" : ""}`}>
+    <div className={`topnav ${menu.show ? "topnav--show" : ""}`}>
       <div className="topnav__inner container">
         <div className="topnav__logo" onClick={() => toggleMenu()}>
           <svg className="svg--logo">
@@ -29,26 +29,33 @@ function Navigation(props: NavigationProps): JSX.Element {
           <span className="topnav__hamburger topnav__hamburger--second" />
         </div>
       </div>
-      <ul className="topnav__list">
-        <div className="topnav__list-inner container">
-          {props.items.map(function(item) {
-            let itemClassName = item.title.toLocaleLowerCase();
-            itemClassName = itemClassName.replace(" ", "-");
-            return (
-              <li
-                className={`topnav__list-item topnav__list-item--${itemClassName}`}
-                key={item.id}
-              >
-                <a href={item.url} className="topnav__list-link" key={item.id}>
-                  {item.title}
-                </a>
-              </li>
-            );
-          })}
-        </div>
-      </ul>
+      <nav className="topnav__nav">
+        <ul className="topnav__list">
+          <div className="topnav__list-inner container">
+            {props.items.map(function(item) {
+              let itemClassName = item.title.toLocaleLowerCase();
+              itemClassName = itemClassName.replace(" ", "-");
+              return (
+                <li
+                  className={`topnav__list-item topnav__list-item--${itemClassName}`}
+                  key={item.id}
+                >
+                  <a
+                    href={item.url}
+                    className="topnav__list-link"
+                    key={item.id}
+                  >
+                    {item.title}
+                  </a>
+                </li>
+              );
+            })}
+          </div>
+        </ul>
+      </nav>
+
       <div className="topnav__fade" />
-    </nav>
+    </div>
   );
 }
 export default Navigation;
