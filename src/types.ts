@@ -26,4 +26,6 @@ interface AppState {
   cases: CaseProps[];
   menu_items: MenuItem[];
   filter: CaseFilter;
+  categories: string[];
+  industries: string[];
 }

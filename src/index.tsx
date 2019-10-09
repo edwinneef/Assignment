@@ -18,9 +18,11 @@ class App extends React.Component<{}, AppState> {
     super(props);
     this.state = {
       cases: null,
+      categories: [],
+      industries: [],
       filter: {
-        category: null,
-        industry: null
+        category: "all",
+        industry: "all"
       },
       menu_items: []
     };
@@ -32,10 +34,12 @@ class App extends React.Component<{}, AppState> {
   makeQuery(queries: { type: string; query: string }[]): string {
     let queryArray: string[] = [];
     queries.forEach(
-      q => q.query != null && queryArray.push(`${q.type}=${q.query}`)
+      q =>
+        q.query != "all" &&
+        queryArray.push(`${q.type.toLowerCase()}=${q.query.toLowerCase()}`)
     );
-    let result: string =
-      queryArray.length > 1 ? `?${queryArray.join("&")}` : "";
+    let result: string = queryArray.length ? `?${queryArray.join("&")}` : "";
+
     return result;
   }
 
@@ -48,20 +52,64 @@ class App extends React.Component<{}, AppState> {
     const casesRes = await axios(`http://localhost:3000/cases${query}`);
     const menuRes = await axios("http://localhost:3000/menu_items");
 
-    this.setState({
-      ...this.state,
-      menu_items: menuRes.data,
-      cases: casesRes.data
-    });
+    this.setState(
+      {
+        ...this.state,
+        menu_items: menuRes.data,
+        cases: casesRes.data
+      },
+      () => {
+        this.updateFilterProps();
+      }
+    );
   };
 
-  filterCases(category?: string | null, industry?: string) {
+  updateFilterProps() {
+    let categories: string[] = [];
+    let industries: string[] = [];
+
+    this.state.cases.forEach(c => {
+      !categories.includes(c.category) && categories.push(c.category);
+      !industries.includes(c.industry) && industries.push(c.industry);
+    });
+
+    this.setState({
+      ...this.state,
+      categories:
+        categories.length > this.state.categories.length
+          ? categories
+          : this.state.categories,
+      industries:
+        industries.length > this.state.industries.length
+          ? industries
+          : this.state.industries
+    });
+  }
+
+  updateIndustries() {
+    let industries: string[] = [];
+    this.state.cases.forEach(
+      c => !industries.includes(c.industry) && industries.push(c.industry)
+    );
+
+    if (
+      industries.length >
+      (this.state.industries && this.state.industries.length)
+    ) {
+      this.setState({
+        ...this.state,
+        industries: industries
+      });
+    }
+  }
+
+  filterCases(category?: string, industry?: string) {
     this.setState(
       {
         ...this.state,
         filter: {
-          industry: "personal",
-          category: ""
+          industry: industry ? industry : this.state.filter.industry,
+          category: category ? category : this.state.filter.category
         }
       },
       () => this.fetchData()
@@ -104,9 +152,11 @@ class App extends React.Component<{}, AppState> {
           <Navigation items={this.state.menu_items} />
         )}
         <Filter
-          onClick={(category: string, industry: string) =>
+          filterParent={(category: string, industry: string) =>
             this.filterCases(category, industry)
           }
+          categories={this.state.categories}
+          industries={this.state.industries}
         />
         {this.getCases(0, 4)}
         {this.getCases(4, 3, true)}

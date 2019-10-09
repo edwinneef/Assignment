@@ -30,3 +30,35 @@
 
 .case-filter__dropdown-item {
 }
+
+.case-filter__menu {
+  position: relative;
+  z-index: 2;
+  min-width: 160px;
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    .case-filter__dropdown {
+      display: block;
+      position: absolute;
+      top: 0;
+      padding-top: 30px;
+      left: -10px;
+      min-width: 160px;
+      font-size: 20px;
+    }
+  }
+}
+
+.case-filter__menu--category {
+  margin-right: $gutter--s;
+}
+
+.case-filter__dropdown {
+  display: none;
+}
+
+.case-filter__dropdown-item {
+  padding: 10px;
+  background: $color--white;
+}

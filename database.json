@@ -41,134 +41,134 @@
       "id": 1,
       "name": "Bol.com",
       "title": "A summer island in the Netherlands",
-      "industry": "personal",
-      "platforms": ["website"]
+      "industry": "non profit",
+      "category": "design"
     },
     {
       "id": 2,
       "name": "Kempen",
       "title": "Not some average banking website",
       "industry": "corporate",
-      "platforms": ["website"]
+      "category": "strategy"
     },
     {
       "id": 3,
       "name": "Philips",
       "title": "Beautiful design meets innovative technology",
       "industry": "corporate",
-      "platforms": ["website"]
+      "category": "technology"
     },
     {
       "id": 4,
       "name": "Gemeentemuseum",
       "title": "A 100 years of Mondriaan & De stijl",
       "industry": "corporate",
-      "platforms": ["website"]
+      "category": "digital marketing"
     },
     {
       "id": 5,
       "name": "Bol.com",
       "title": "A summer island in the Netherlands",
-      "industry": "personal",
-      "platforms": ["website"]
+      "industry": "non profit",
+      "category": "design"
     },
     {
       "id": 6,
       "name": "Kempen",
       "title": "Not some average banking website",
       "industry": "corporate",
-      "platforms": ["website"]
+      "category": "design"
     },
     {
       "id": 7,
       "name": "Philips",
       "title": "Beautiful design meets innovative technology",
       "industry": "corporate",
-      "platforms": ["website"]
+      "category": "design"
     },
     {
       "id": 8,
       "name": "Gemeentemuseum",
       "title": "A 100 years of Mondriaan & De stijl",
       "industry": "corporate",
-      "platforms": ["website"]
+      "category": "design"
     },
     {
       "id": 9,
       "name": "Bol.com",
       "title": "A summer island in the Netherlands",
-      "industry": "personal",
-      "platforms": ["website"]
+      "industry": "non profit",
+      "category": "design"
     },
     {
       "id": 10,
       "name": "Kempen",
       "title": "Not some average banking website",
       "industry": "corporate",
-      "platforms": ["website"]
+      "category": "design"
     },
     {
       "id": 11,
       "name": "Philips",
       "title": "Beautiful design meets innovative technology",
       "industry": "corporate",
-      "platforms": ["website"]
+      "category": "design"
     },
     {
       "id": 12,
       "name": "Gemeentemuseum",
       "title": "A 100 years of Mondriaan & De stijl",
       "industry": "corporate",
-      "platforms": ["website"]
+      "category": "design"
     },
     {
       "id": 13,
       "name": "Gemeentemuseum",
       "title": "A 100 years of Mondriaan & De stijl",
       "industry": "corporate",
-      "platforms": ["website"]
+      "category": "design"
     },
     {
       "id": 14,
       "name": "Bol.com",
       "title": "A summer island in the Netherlands",
-      "industry": "personal",
-      "platforms": ["website"]
+      "industry": "non profit",
+      "category": "design"
     },
     {
       "id": 15,
       "name": "Kempen",
       "title": "Not some average banking website",
       "industry": "corporate",
-      "platforms": ["website"]
+      "category": "design"
     },
     {
       "id": 16,
       "name": "Philips",
       "title": "Beautiful design meets innovative technology",
       "industry": "corporate",
-      "platforms": ["website"]
+      "category": "design"
     },
     {
       "id": 17,
       "name": "Gemeentemuseum",
       "title": "A 100 years of Mondriaan & De stijl",
       "industry": "corporate",
-      "platforms": ["website"]
+      "category": "design"
     },
     {
       "id": 18,
       "name": "Philips",
       "title": "Beautiful design meets innovative technology",
       "industry": "corporate",
-      "platforms": ["website"]
+      "category": "design"
     },
     {
       "id": 19,
       "name": "Gemeentemuseum",
       "title": "A 100 years of Mondriaan & De stijl",
       "industry": "corporate",
-      "platforms": ["website"]
+      "category": "design"
     }
   ]
 }

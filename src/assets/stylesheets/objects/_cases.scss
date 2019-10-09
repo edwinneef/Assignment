@@ -170,3 +170,9 @@
     transition: border-left-color 300ms ease;
   }
 }
+
+.case-filter__all {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}

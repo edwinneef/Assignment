@@ -51,7 +51,7 @@
 
 .clients__list-item {
   flex-basis: 100%;
-  padding: 0 $gutter--s $gutter--s $gutter--s;
+  padding: 0 $gutter--s $spacing--m $gutter--s;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,5 +61,15 @@
   }
   @include desktop-up {
     flex-basis: 25%;
+  }
+
+  svg {
+    height: 50px;
+    width: 100%;
+    max-width: 100px;
+  }
+
+  .svg--logo {
+    width: 100%;
   }
 }

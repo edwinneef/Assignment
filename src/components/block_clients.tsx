@@ -21,89 +21,65 @@ function Clients(): JSX.Element {
         </div>
 
         <ul className="clients__list">
-          <li className="clients__list-item">
-            <img
-              src="http://placehold.it/250x126"
-              alt=""
-              className="clients__list-image"
-            />
+        <li className="clients__list-item">
+            <svg className="svg--logo">
+              <use xlinkHref="#logo" />
+            </svg>
           </li>
           <li className="clients__list-item">
-            <img
-              src="http://placehold.it/250x126"
-              alt=""
-              className="clients__list-image"
-            />
+            <svg className="svg--logo">
+              <use xlinkHref="#logo-2" />
+            </svg>
           </li>
           <li className="clients__list-item">
-            <img
-              src="http://placehold.it/250x126"
-              alt=""
-              className="clients__list-image"
-            />
+            <svg className="svg--logo">
+              <use xlinkHref="#logo-3" />
+            </svg>
           </li>
           <li className="clients__list-item">
-            <img
-              src="http://placehold.it/250x126"
-              alt=""
-              className="clients__list-image"
-            />
+            <svg className="svg--logo">
+              <use xlinkHref="#logo-4" />
+            </svg>
           </li>
           <li className="clients__list-item">
-            <img
-              src="http://placehold.it/250x126"
-              alt=""
-              className="clients__list-image"
-            />
+            <svg className="svg--logo">
+              <use xlinkHref="#logo-4" />
+            </svg>
           </li>
           <li className="clients__list-item">
-            <img
-              src="http://placehold.it/250x96"
-              alt=""
-              className="clients__list-image"
-            />
+            <svg className="svg--logo">
+              <use xlinkHref="#logo-3" />
+            </svg>
           </li>
           <li className="clients__list-item">
-            <img
-              src="http://placehold.it/250x126"
-              alt=""
-              className="clients__list-image"
-            />
+            <svg className="svg--logo">
+              <use xlinkHref="#logo-2" />
+            </svg>
           </li>
           <li className="clients__list-item">
-            <img
-              src="http://placehold.it/250x116"
-              alt=""
-              className="clients__list-image"
-            />
+            <svg className="svg--logo">
+              <use xlinkHref="#logo" />
+            </svg>
           </li>
           <li className="clients__list-item">
-            <img
-              src="http://placehold.it/250x106"
-              alt=""
-              className="clients__list-image"
-            />
+            <svg className="svg--logo">
+              <use xlinkHref="#logo" />
+            </svg>
           </li>
           <li className="clients__list-item">
-            <img
-              src="http://placehold.it/250x126"
-              alt=""
-              className="clients__list-image"
-            />
+            <svg className="svg--logo">
+              <use xlinkHref="#logo-2" />
+            </svg>
           </li>
           <li className="clients__list-item">
-            <img
-              src="http://placehold.it/250x126"
-              alt=""
-              className="clients__list-image"
-            />
+            <svg className="svg--logo">
+              <use xlinkHref="#logo-3" />
+            </svg>
           </li>
           <li className="clients__list-item">
-            <img
-              src="http://placehold.it/250x126"
-              alt=""
-              className="clients__list-image"
-            />
+            <svg className="svg--logo">
+              <use xlinkHref="#logo-4" />
+            </svg>
           </li>
         </ul>
       </div>
