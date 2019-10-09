@@ -4,7 +4,7 @@
 
 .topnav {
   position: fixed;
-  z-index: 2;
+  z-index: 10;
   left: 0;
   top: 0;
   width: 100%;
@@ -155,6 +155,7 @@
   fill: $color--black-100;
   height: 14px;
   transition: fill 500ms ease, transform 300ms ease 100ms;
+  transform-origin: left;
 }
 
 .topnav__list-inner {
