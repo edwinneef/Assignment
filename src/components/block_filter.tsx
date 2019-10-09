@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const Filter = () => {
+function Filter(): JSX.Element {
   return (
     <div className="case-filter">
       <div className="case-filter__inner container">
@@ -15,6 +15,6 @@ const Filter = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Filter;

@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function ContactComponent(): JSX.Element {
+function Contact(): JSX.Element {
   return (
     <div className="contact">
       <div className="contact__inner container">
@@ -38,4 +38,4 @@ function ContactComponent(): JSX.Element {
   );
 }
 
-export default ContactComponent;
+export default Contact;

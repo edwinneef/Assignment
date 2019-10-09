@@ -1,7 +1,7 @@
 import * as React from "react";
 import axios from "axios";
 
-function Navigation() {
+function Navigation(): JSX.Element {
   const [data, setData] = React.useState({ menu_items: [] });
   React.useEffect(() => {
     const fetchData = async () => {

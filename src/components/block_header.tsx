@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const Header = () => {
+function Header(): JSX.Element {
   return (
     <div className="header--main">
       <div className="container">
@@ -8,6 +8,6 @@ const Header = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Header;

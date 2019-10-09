@@ -5,14 +5,14 @@ import Navigation from "./components/block_navigation";
 import Header from "./components/block_header";
 import Filter from "./components/block_filter";
 import Cases from "./components/block_cases";
-import QuoteComponent from "./components/block_quote";
-import ClientsComponent from "./components/block_clients";
+import Quote from "./components/block_quote";
+import Clients from "./components/block_clients";
 import axios from "axios";
-import ContactComponent from "./components/block_contact";
-import FeaturedCaseBlock from "./components/block_featured_case";
+import Contact from "./components/block_contact";
+import FeaturedCases from "./components/block_featured_case";
 require("./assets/stylesheets/style.scss");
 
-function App() {
+function App(): JSX.Element {
   const [cases, setCases] = React.useState<CasesResponse | null>(undefined);
 
   React.useEffect(() => {
@@ -31,13 +31,13 @@ function App() {
   return (
     <div>
       <Header />
-      {/* <Navigation /> */}
+      <Navigation />
       <Filter />
 
       {casesList ? (
         <>
           <Cases cases={casesList.length > 4 ? casesList.splice(0, 4) : []} />
-          <FeaturedCaseBlock
+          <FeaturedCases
             cases={casesList.length > 3 ? casesList.splice(0, 3) : []}
           />
           <Cases cases={casesList.length > 4 ? casesList.splice(0, 4) : []} />
@@ -45,14 +45,14 @@ function App() {
       ) : (
         <div className="container">Loading cases...</div>
       )}
-      <QuoteComponent
+      <Quote
         function="CEO"
         company="Company"
         author="Edwin Neef"
         text={`“Dept helped us tell our story through a bold new identity and a robust online experience. To the tune of 60% growth in online bookings in just one month.”`}
       />
-      <ClientsComponent />
-      <ContactComponent />
+      <Clients />
+      <Contact />
     </div>
   );
 }

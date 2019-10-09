@@ -1,7 +1,7 @@
 import * as React from "react";
 import Case from "./case";
 
-function FeaturedCaseBlock(props: {
+function FeaturedCases(props: {
   cases: CaseProps[];
   reversed?: boolean;
 }): JSX.Element {
@@ -42,4 +42,4 @@ function FeaturedCaseBlock(props: {
   );
 }
 
-export default FeaturedCaseBlock;
+export default FeaturedCases;

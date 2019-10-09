@@ -1,6 +1,6 @@
 import * as React from "React";
 
-function ClientsComponent(): JSX.Element {
+function Clients(): JSX.Element {
   return (
     <section className="clients">
       <div className="clients__inner">
@@ -111,4 +111,4 @@ function ClientsComponent(): JSX.Element {
   );
 }
 
-export default ClientsComponent;
+export default Clients;

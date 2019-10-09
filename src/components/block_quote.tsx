@@ -1,13 +1,13 @@
 import * as React from "react";
 
-type QuoteComponentProps = {
+type QuoteProps = {
   text: string;
   author?: string;
   function?: string;
   company?: string;
 };
 
-function QuoteComponent(props: QuoteComponentProps): JSX.Element {
+function Quote(props: QuoteProps): JSX.Element {
   let author: string;
   let authorFunction: string;
 
@@ -37,4 +37,4 @@ function QuoteComponent(props: QuoteComponentProps): JSX.Element {
   );
 }
 
-export default QuoteComponent;
+export default Quote;
