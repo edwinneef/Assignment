@@ -13,25 +13,28 @@ import FeaturedCases from "./components/block_featured_case";
 require("./assets/stylesheets/style.scss");
 
 function App(): JSX.Element {
-  const [cases, setCases] = React.useState<CasesResponse | null>(undefined);
+  const [appState, setAppState] = React.useState<AppState | null>(undefined);
 
   React.useEffect(() => {
     const fetchData = async () => {
-      const result = await axios("http://localhost:3000/cases");
-      setCases({ cases: result.data });
+      const casesRes = await axios("http://localhost:3000/cases");
+      const menuRes = await axios("http://localhost:3000/menu_items");
+
+      setAppState({ menu_items: menuRes.data, cases: casesRes.data });
     };
+
     fetchData();
   }, []);
 
-  console.log(cases);
-
   let casesList: CaseProps[];
-  casesList = cases ? cases.cases : casesList;
+  casesList = appState ? appState.cases : casesList;
 
   return (
     <div>
       <Header />
-      <Navigation />
+      {appState && appState.menu_items.length > 1 && (
+        <Navigation items={appState.menu_items} />
+      )}
       <Filter />
 
       {casesList ? (
@@ -49,7 +52,9 @@ function App(): JSX.Element {
         function="CEO"
         company="Company"
         author="Edwin Neef"
-        text={`“Dept helped us tell our story through a bold new identity and a robust online experience. To the tune of 60% growth in online bookings in just one month.”`}
+        text={`“Dept helped us tell our story through a bold new identity 
+        and a robust online experience. To the tune of 60% growth in online 
+        bookings in just one month.”`}
       />
       <Clients />
       <Contact />

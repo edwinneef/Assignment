@@ -1,26 +1,26 @@
 import * as React from "react";
 import axios from "axios";
 
-function Navigation(): JSX.Element {
-  const [data, setData] = React.useState({ menu_items: [] });
-  React.useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios("http://localhost:3000/menu_items");
-      setData({ menu_items: result.data });
-    };
-    fetchData();
-  }, []);
+type navigationProps = {
+  items: MenuItem[];
+};
 
+function Navigation(props: navigationProps): JSX.Element {
   return (
-    <ul>
-      {data.menu_items.map(function(item) {
-        return (
-          <li key={item.id}>
-            <a href={item.url}>{item.title}</a>
-          </li>
-        );
-      })}
-    </ul>
+    <nav className="topnav">
+      <ul className="topnav__list">
+        {props.items.map(function(item) {
+          const itemClassName = item.title;
+          return (
+            <li className="topnav__list-item" key={item.id}>
+              <a href={item.url} className="topnav__list-link" key={item.id}>
+                {item.title}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
   );
 }
 export default Navigation;

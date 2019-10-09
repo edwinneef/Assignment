@@ -19,9 +19,7 @@ function Case(props: CaseProps): JSX.Element {
           {props.type != "side" && (
             <div className="case__visual">
               <img
-                src={`https://picsum.photos/id/${
-                  props.image_url ? props.image_url : "1"
-                }/1000/600`}
+                src={`https://picsum.photos/id/${props.id * 2}/950/600`}
                 alt=""
                 className="case__image"
               />
@@ -31,9 +29,7 @@ function Case(props: CaseProps): JSX.Element {
           <div className="case__content">
             <span className="case__client-name title--s">{props.name}</span>
             <h3 className="case__title">{props.title}</h3>
-            <a href="#" className="case__link">
-              View case
-            </a>
+            <span className="case__link">View case</span>
           </div>
         </div>
       </a>
