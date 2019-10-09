@@ -1,21 +1,50 @@
 import "babel-polyfill";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import Navigation from "./components/navigation";
-import Header from "./components/header";
-import Filter from "./components/filter";
-import Cases from "./components/cases";
-import QuoteComponent from "./components/quote";
-import ClientsComponent from "./components/clients";
-import ContactComponent from "./components/contact";
+import Navigation from "./components/block_navigation";
+import Header from "./components/block_header";
+import Filter from "./components/block_filter";
+import Cases from "./components/block_cases";
+import QuoteComponent from "./components/block_quote";
+import ClientsComponent from "./components/block_clients";
+import axios from "axios";
+import ContactComponent from "./components/block_contact";
+import FeaturedCaseBlock from "./components/block_featured_case";
 require("./assets/stylesheets/style.scss");
 
 function App() {
+  const [cases, setCases] = React.useState<CasesResponse | null>(undefined);
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios("http://localhost:3000/cases");
+      setCases({ cases: result.data });
+    };
+    fetchData();
+  }, []);
+
+  console.log(cases);
+
+  let casesList: CaseProps[];
+  casesList = cases ? cases.cases : casesList;
+
   return (
     <div>
       <Header />
       {/* <Navigation /> */}
-      <Cases />
+      <Filter />
+
+      {casesList ? (
+        <>
+          <Cases cases={casesList.length > 4 ? casesList.splice(0, 4) : []} />
+          <FeaturedCaseBlock
+            cases={casesList.length > 3 ? casesList.splice(0, 3) : []}
+          />
+          <Cases cases={casesList.length > 4 ? casesList.splice(0, 4) : []} />
+        </>
+      ) : (
+        <div className="container">Loading cases...</div>
+      )}
       <QuoteComponent
         function="CEO"
         company="Company"
