@@ -55,7 +55,7 @@
       "id": 3,
       "name": "Philips",
       "title": "Beautiful design meets innovative technology",
-      "industry": "corporate",
+      "industry": "non profit",
       "category": "technology"
     },
     {
@@ -84,42 +84,42 @@
       "name": "Philips",
       "title": "Beautiful design meets innovative technology",
       "industry": "corporate",
-      "category": "design"
+      "category": "strategy"
     },
     {
       "id": 8,
       "name": "Gemeentemuseum",
       "title": "A 100 years of Mondriaan & De stijl",
       "industry": "corporate",
-      "category": "design"
+      "category": "strategy"
     },
     {
       "id": 9,
       "name": "Bol.com",
       "title": "A summer island in the Netherlands",
       "industry": "non profit",
-      "category": "design"
+      "category": "strategy"
     },
     {
       "id": 10,
       "name": "Kempen",
       "title": "Not some average banking website",
       "industry": "corporate",
-      "category": "design"
+      "category": "technology"
     },
     {
       "id": 11,
       "name": "Philips",
       "title": "Beautiful design meets innovative technology",
       "industry": "corporate",
-      "category": "design"
+      "category": "technology"
     },
     {
       "id": 12,
       "name": "Gemeentemuseum",
       "title": "A 100 years of Mondriaan & De stijl",
       "industry": "corporate",
-      "category": "design"
+      "category": "technology"
     },
     {
       "id": 13,
@@ -146,29 +146,29 @@
       "id": 16,
       "name": "Philips",
       "title": "Beautiful design meets innovative technology",
-      "industry": "corporate",
-      "category": "design"
+      "industry": "non profit",
+      "category": "digital marketing"
     },
     {
       "id": 17,
       "name": "Gemeentemuseum",
       "title": "A 100 years of Mondriaan & De stijl",
       "industry": "corporate",
-      "category": "design"
+      "category": "digital marketing"
     },
     {
       "id": 18,
       "name": "Philips",
       "title": "Beautiful design meets innovative technology",
       "industry": "corporate",
-      "category": "design"
+      "category": "digital marketing"
     },
     {
       "id": 19,
       "name": "Gemeentemuseum",
       "title": "A 100 years of Mondriaan & De stijl",
       "industry": "corporate",
-      "category": "design"
+      "category": "digital marketing"
     }
   ]
 }
