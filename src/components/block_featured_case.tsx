@@ -22,18 +22,11 @@ function FeaturedCases(props: {
           name={featuredCase.name}
           id={featuredCase.id}
           type="featured"
-          image_url="1"
         />
         <aside className="cases__sidebar">
           {sideCases.map(c => (
             <React.Fragment key={c.id}>
-              <Case
-                title={c.title}
-                name={c.name}
-                id={c.id}
-                type="side"
-                image_url="1"
-              />
+              <Case title={c.title} name={c.name} id={c.id} type="side" />
             </React.Fragment>
           ))}
         </aside>

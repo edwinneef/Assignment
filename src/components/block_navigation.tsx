@@ -1,25 +1,53 @@
 import * as React from "react";
 import axios from "axios";
 
-type navigationProps = {
+type NavigationProps = {
   items: MenuItem[];
 };
 
-function Navigation(props: navigationProps): JSX.Element {
+type MenuState = {
+  show: boolean;
+};
+
+function Navigation(props: NavigationProps): JSX.Element {
+  const [menu, setMenu] = React.useState<MenuState>({ show: false });
+
+  function toggleMenu(): void {
+    setMenu({ ...menu, show: !menu.show });
+  }
+
   return (
-    <nav className="topnav">
+    <nav className={`topnav ${menu.show ? "topnav--show" : ""}`}>
+      <div className="topnav__inner container">
+        <div className="topnav__logo" onClick={() => toggleMenu()}>
+          <svg className="svg--logo">
+            <use xlinkHref="#logo" />
+          </svg>
+        </div>
+        <div className="topnav__toggle" onClick={() => toggleMenu()}>
+          <span className="topnav__hamburger topnav__hamburger--first" />
+          <span className="topnav__hamburger topnav__hamburger--second" />
+        </div>
+      </div>
       <ul className="topnav__list">
-        {props.items.map(function(item) {
-          const itemClassName = item.title;
-          return (
-            <li className="topnav__list-item" key={item.id}>
-              <a href={item.url} className="topnav__list-link" key={item.id}>
-                {item.title}
-              </a>
-            </li>
-          );
-        })}
+        <div className="topnav__list-inner container">
+          {props.items.map(function(item) {
+            let itemClassName = item.title.toLocaleLowerCase();
+            itemClassName = itemClassName.replace(" ", "-");
+            return (
+              <li
+                className={`topnav__list-item topnav__list-item--${itemClassName}`}
+                key={item.id}
+              >
+                <a href={item.url} className="topnav__list-link" key={item.id}>
+                  {item.title}
+                </a>
+              </li>
+            );
+          })}
+        </div>
       </ul>
+      <div className="topnav__fade" />
     </nav>
   );
 }

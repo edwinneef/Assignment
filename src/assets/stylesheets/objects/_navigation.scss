@@ -1,0 +1,144 @@
+//
+// Objects | Navigation
+//
+
+.topnav {
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  background: $color--white;
+  border-bottom: 1px solid $color--grey-900;
+  overflow-y: hidden;
+  &--show {
+    .topnav__list {
+      transform: scale(1);
+      opacity: 1;
+      pointer-events: all;
+    }
+    .topnav__list-item {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .topnav__hamburger {
+      background-color: $color--white;
+    }
+    .topnav__hamburger--first {
+      transform: translateY(3px) rotate(45deg);
+    }
+    .topnav__hamburger--second {
+      transform: translateY(3px) rotate(-45deg);
+    }
+    .svg--logo {
+      fill: $color--white;
+    }
+    .topnav__fade {
+      opacity: 1;
+    }
+  }
+}
+
+.topnav__inner {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topnav__logo {
+  position: relative;
+  z-index: 10;
+  line-height: 1;
+}
+
+.topnav__list {
+  pointer-events: none;
+  display: block;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  max-height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: $color--black;
+  transform: scale(1.1);
+  transition: all 300ms ease;
+  @include font-size(110px);
+  text-align: right;
+  @include title;
+  overflow-y: scroll;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    width: 0 !important;
+  }
+}
+
+.topnav__list-item {
+  line-height: 1.3;
+  border-bottom: 1px solid $color--grey;
+  opacity: 0;
+  transform: scale(1.1);
+  transition-property: opacity, transform;
+  transition-timing-function: ease;
+  transition-duration: 175ms;
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      transition-delay: calc(100ms + #{$i * 90ms});
+    }
+  }
+}
+
+.topnav__list-link {
+  text-decoration: none;
+  color: $color--white;
+}
+
+.topnav__toggle {
+  width: 20px;
+  height: 8px;
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.topnav__hamburger {
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background-color: $color--black;
+  transition: transform 300ms ease, background-color 300ms ease;
+  top: 0;
+}
+
+.topnav__hamburger--second {
+  transform: translateY(6px);
+}
+
+.svg--logo {
+  width: 50px;
+  fill: $color--black-100;
+  height: 14px;
+  transition: fill 300ms ease;
+}
+
+.topnav__list-inner {
+  padding: 100px $gutter--m;
+}
+
+.topnav__fade {
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 300ms ease;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 125px;
+  background-image: linear-gradient(to top, $color--black, transparent);
+}

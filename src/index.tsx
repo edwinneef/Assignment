@@ -13,7 +13,7 @@ import FeaturedCases from "./components/block_featured_case";
 require("./assets/stylesheets/style.scss");
 
 function App(): JSX.Element {
-  const [appState, setAppState] = React.useState<AppState | null>(undefined);
+  const [appState, setAppState] = React.useState<AppState | null>(null);
 
   React.useEffect(() => {
     const fetchData = async () => {
