@@ -14,6 +14,12 @@ function Navigation(props: NavigationProps): JSX.Element {
 
   function toggleMenu(): void {
     setMenu({ ...menu, show: !menu.show });
+
+    const bodyClassName = "menu--open";
+    const element = window.document.body;
+    !menu.show
+      ? element.classList.add(bodyClassName)
+      : element.classList.remove(bodyClassName);
   }
 
   return (

@@ -1,8 +1,12 @@
 import * as React from "react";
 
-function Filter(): JSX.Element {
+type FilterProps = {
+  onClick: (category: string, industry: string) => void;
+};
+
+function Filter(props: FilterProps): JSX.Element {
   return (
-    <div className="case-filter">
+    <div className="case-filter" onClick={() => props.onClick("", "personal")}>
       <div className="case-filter__inner container">
         <span className="case-filter__description">Show me</span>
         <ul className="case-filter__dropdown">

@@ -10,56 +10,123 @@ import Clients from "./components/block_clients";
 import axios from "axios";
 import Contact from "./components/block_contact";
 import FeaturedCases from "./components/block_featured_case";
+import { BADNAME } from "dns";
 require("./assets/stylesheets/style.scss");
 
-function App(): JSX.Element {
-  const [appState, setAppState] = React.useState<AppState | null>(null);
-
-  React.useEffect(() => {
-    const fetchData = async () => {
-      const casesRes = await axios("http://localhost:3000/cases");
-      const menuRes = await axios("http://localhost:3000/menu_items");
-
-      setAppState({ menu_items: menuRes.data, cases: casesRes.data });
+class App extends React.Component<{}, AppState> {
+  constructor(props: {}) {
+    super(props);
+    this.state = {
+      cases: null,
+      filter: {
+        category: null,
+        industry: null
+      },
+      menu_items: []
     };
 
-    fetchData();
-  }, []);
+    this.filterCases = this.filterCases.bind(this);
+    this.fetchData = this.fetchData.bind(this);
+  }
 
-  let casesList: CaseProps[];
-  casesList = appState ? appState.cases : casesList;
+  makeQuery(queries: { type: string; query: string }[]): string {
+    let queryArray: string[] = [];
+    queries.forEach(
+      q => q.query != null && queryArray.push(`${q.type}=${q.query}`)
+    );
+    let result: string =
+      queryArray.length > 1 ? `?${queryArray.join("&")}` : "";
+    return result;
+  }
 
-  return (
-    <div>
-      <Header />
-      {appState && appState.menu_items.length > 1 && (
-        <Navigation items={appState.menu_items} />
-      )}
-      <Filter />
+  fetchData = async () => {
+    let query: string = this.makeQuery([
+      { type: "industry", query: this.state.filter.industry },
+      { type: "category", query: this.state.filter.category }
+    ]);
 
-      {casesList ? (
-        <>
-          <Cases cases={casesList.length > 4 ? casesList.splice(0, 4) : []} />
-          <FeaturedCases
-            cases={casesList.length > 3 ? casesList.splice(0, 3) : []}
-          />
-          <Cases cases={casesList.length > 4 ? casesList.splice(0, 4) : []} />
-        </>
+    const casesRes = await axios(`http://localhost:3000/cases${query}`);
+    const menuRes = await axios("http://localhost:3000/menu_items");
+
+    this.setState({
+      ...this.state,
+      menu_items: menuRes.data,
+      cases: casesRes.data
+    });
+  };
+
+  filterCases(category?: string | null, industry?: string) {
+    this.setState(
+      {
+        ...this.state,
+        filter: {
+          industry: "personal",
+          category: ""
+        }
+      },
+      () => this.fetchData()
+    );
+  }
+
+  doCasesExist(start: number, amount: number): boolean {
+    let cases: CaseProps[] = this.state.cases
+      ? this.state.cases.slice(start, start + amount)
+      : null;
+    return cases && cases.length >= amount;
+  }
+
+  getCases(
+    start: number,
+    amount: number,
+    featured?: boolean
+  ): JSX.Element | null {
+    let cases: CaseProps[] = this.state.cases
+      ? this.state.cases.slice(start, start + amount)
+      : null;
+    if (cases && cases.length >= amount) {
+      return featured ? (
+        <FeaturedCases cases={cases} />
       ) : (
-        <div className="container">Loading cases...</div>
-      )}
-      <Quote
-        function="CEO"
-        company="Company"
-        author="Edwin Neef"
-        text={`“Dept helped us tell our story through a bold new identity 
+        <Cases cases={cases} />
+      );
+    }
+  }
+
+  render() {
+    if (!this.state.cases) {
+      this.fetchData();
+    }
+
+    return (
+      <div className="page-wrapper">
+        <Header />
+        {this.state.menu_items && this.state.menu_items.length > 1 && (
+          <Navigation items={this.state.menu_items} />
+        )}
+        <Filter
+          onClick={(category: string, industry: string) =>
+            this.filterCases(category, industry)
+          }
+        />
+        {this.getCases(0, 4)}
+        {this.getCases(4, 3, true)}
+        {this.getCases(7, 2)}
+        {this.getCases(9, 4)}
+        {this.getCases(13, 4)}
+        <Quote
+          function="CEO"
+          company="Company"
+          author="Edwin Neef"
+          text={`“Dept helped us tell our story through a bold new identity 
         and a robust online experience. To the tune of 60% growth in online 
         bookings in just one month.”`}
-      />
-      <Clients />
-      <Contact />
-    </div>
-  );
+        />
+        {this.getCases(17, 2)}
+        <Clients />
+        <Contact />
+      </div>
+    );
+  }
 }
 
 ReactDOM.render(<App />, document.getElementById("app"));
