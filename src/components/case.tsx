@@ -14,7 +14,7 @@ function Case(props: CaseProps): JSX.Element {
       }`}
       key={props.id}
     >
-      <a href="#" className="case__link-outer">
+      <a href={`/cases/${props.id}`} className="case__link-outer">
         <div className="case-column__inner">
           {props.type != "side" && (
             <div className="case__visual">

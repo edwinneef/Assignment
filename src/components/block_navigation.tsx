@@ -26,11 +26,15 @@ function Navigation(props: NavigationProps): JSX.Element {
     <div className={`topnav ${menu.show ? "topnav--show" : ""}`}>
       <div className="topnav__inner container">
         <div className="topnav__logo" onClick={() => toggleMenu()}>
-          <svg className="svg--logo">
-            <use xlinkHref="#logo" />
-          </svg>
+          <a href="#">
+            <span className="sr-text">Dept Logo</span>
+            <svg className="svg--logo">
+              <use xlinkHref="#logo" />
+            </svg>
+          </a>
         </div>
         <div className="topnav__toggle" onClick={() => toggleMenu()}>
+          <span className="sr-text">Toggle Menu</span>
           <span className="topnav__hamburger topnav__hamburger--first" />
           <span className="topnav__hamburger topnav__hamburger--second" />
         </div>

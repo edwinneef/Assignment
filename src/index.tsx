@@ -158,7 +158,13 @@ class App extends React.Component<{}, AppState> {
           categories={this.state.categories}
           industries={this.state.industries}
         />
-        {this.getCases(0, 4)}
+        {this.state.cases && this.state.cases.length! < 1 && (
+          <div className="container">No results..</div>
+        )}
+        {this.state.cases && this.state.cases.length <= 1
+          ? this.getCases(0, 1)
+          : this.getCases(0, 2)}
+        {this.getCases(2, 2)}
         {this.getCases(4, 3, true)}
         {this.getCases(7, 2)}
         {this.getCases(9, 4)}

@@ -15,9 +15,15 @@
   color: $color--white;
   font-weight: 700;
   text-transform: uppercase;
-  background: $color--black;
+  background-color: $color--black;
+
+  transition: background-color 300ms ease;
 }
 
 .btn--blue {
-  background: $color--blue;
+  background-color: $color--blue;
+  &:hover,
+  &:focus {
+    background-color: $color--black;
+  }
 }
