@@ -10,7 +10,6 @@ import Clients from "./components/block_clients";
 import axios from "axios";
 import Contact from "./components/block_contact";
 import FeaturedCases from "./components/block_featured_case";
-import { BADNAME } from "dns";
 require("./assets/stylesheets/style.scss");
 
 class App extends React.Component<{}, AppState> {
