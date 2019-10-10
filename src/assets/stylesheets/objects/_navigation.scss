@@ -129,6 +129,31 @@
   text-decoration: none;
   color: $color--white;
   transition: color 300ms ease;
+  position: relative;
+  padding-left: 50px;
+  @include tablet-up {
+    &:before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 14px 0 14px 19px;
+      border-color: transparent transparent transparent $color--white;
+      left: 0;
+      bottom: 52%;
+      transform: translateY(50%) translateX(-30px);
+      opacity: 0;
+      transition: opacity 300ms ease, transform 400ms ease;
+    }
+    &:hover,
+    &:focus {
+      &:before {
+        transform: translateY(50%) translateX(0);
+        opacity: 1;
+      }
+    }
+  }
 }
 
 .topnav__toggle {
