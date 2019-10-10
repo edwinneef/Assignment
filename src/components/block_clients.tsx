@@ -1,4 +1,4 @@
-import * as React from "React";
+import * as React from "react";
 
 function Clients(): JSX.Element {
   return (
@@ -21,7 +21,7 @@ function Clients(): JSX.Element {
         </div>
 
         <ul className="clients__list">
-        <li className="clients__list-item">
+          <li className="clients__list-item">
             <svg className="svg--logo">
               <use xlinkHref="#logo" />
             </svg>

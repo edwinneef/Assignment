@@ -16,6 +16,7 @@
     .topnav__nav {
       opacity: 1;
       overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
       pointer-events: all;
       @include tablet-up {
         border: 20px solid $color--white;
